@@ -1,10 +1,5 @@
 const participantService = require('../services/participantService');
 
-/**
- * ParticipantController
- * Handles HTTP requests for participant operations
- */
-
 class ParticipantController {
   
   async createUser(req, res) {

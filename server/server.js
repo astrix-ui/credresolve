@@ -8,26 +8,15 @@ const apiRoutes = require('./routes/apiRoutes');
 const app = express();
 const serverPort = process.env.PORT || 3000;
 
-// Import middleware
 const requestLogger = require('./middleware/requestLogger');
 const errorHandler = require('./middleware/errorHandler');
 
-// Middleware setup
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(requestLogger);
-
-// Serve static files for simple frontend
-app.use(express.static('public'));
-
-// API routes
 app.use('/api', apiRoutes);
-
-// Global error handler (must be last)
 app.use(errorHandler);
-
-// Health check endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({ 
     status: 'operational', 

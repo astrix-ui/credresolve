@@ -6,30 +6,25 @@ const hubController = require('../controllers/hubController');
 const transactionController = require('../controllers/transactionController');
 const balanceController = require('../controllers/balanceController');
 
-/**
- * API Routes Configuration
- * All routes are prefixed with /api
- */
-
-// ==================== Participant Routes ====================
+// Participant Routes
 router.post('/createUser', participantController.createUser);
 router.get('/users', participantController.getAllUsers);
 router.get('/users/:userId', participantController.getUserDetails);
 router.put('/users/:userId', participantController.updateUser);
 
-// ==================== Hub/Group Routes ====================
+// Group Routes
 router.post('/createGroup', hubController.createGroup);
 router.get('/groups/:hubId', hubController.getGroupDetails);
 router.post('/groups/:hubId/members', hubController.addMember);
 router.delete('/groups/:hubId/members', hubController.removeMember);
 router.get('/users/:userId/groups', hubController.getUserGroups);
 
-// ==================== Transaction Routes ====================
+// Transaction Routes
 router.post('/addExpense', transactionController.addExpense);
 router.get('/groups/:hubId/expenses', transactionController.getHubExpenses);
 router.get('/expenses/:transactionId', transactionController.getExpenseDetails);
 
-// ==================== Balance & Settlement Routes ====================
+// Balance & Settlement Routes
 router.get('/getBalances/:hubId', balanceController.getBalances);
 router.get('/users/:userId/balances/:hubId', balanceController.getUserBalances);
 router.post('/settleBalance', balanceController.settleBalance);

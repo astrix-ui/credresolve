@@ -2,11 +2,6 @@ const ledgerCalculator = require('../services/ledgerCalculator');
 const settlementService = require('../services/settlementService');
 const Participant = require('../models/Participant');
 
-/**
- * BalanceController
- * Handles balance queries and settlement operations
- */
-
 class BalanceController {
   
   async getBalances(req, res) {

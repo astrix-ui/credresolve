@@ -1,0 +1,436 @@
+/* Modern Monotone Minimal Design */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-bg: #fafafa;
+    --color-surface: #ffffff;
+    --color-primary: #1a1a1a;
+    --color-secondary: #666666;
+    --color-border: #e5e5e5;
+    --color-hover: #f5f5f5;
+    --color-success: #2d2d2d;
+    --color-error: #1a1a1a;
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    height: 100vh;
+    margin: 0;
+    background: var(--color-surface);
+}
+
+/* Header */
+header {
+    background: var(--color-surface);
+    color: var(--color-primary);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-bottom: 1px solid var(--color-border);
+}
+
+h1 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 2px;
+    letter-spacing: -0.2px;
+}
+
+.subtitle {
+    color: var(--color-secondary);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0 var(--spacing-lg);
+    gap: var(--spacing-xs);
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    border-radius: 4px;
+}
+
+.tab-btn:hover:not(.active) {
+    color: var(--color-primary);
+    background: var(--color-hover);
+}
+
+.tab-btn.active {
+    color: var(--color-primary);
+    background: var(--color-bg);
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    overflow-y: auto;
+    flex: 1;
+    width: 100%;
+}
+
+.tab-content > * {
+    max-width: 80%;
+    margin: 0 auto;
+    padding-top: var(--spacing-xl);
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Typography */
+h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    padding: 0;
+    color: var(--color-primary);
+    letter-spacing: -0.2px;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+}
+
+p {
+    color: var(--color-secondary);
+    font-size: 13px;
+    margin-bottom: var(--spacing-sm);
+    padding: 0;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.helper-text {
+    font-size: 13px;
+    color: var(--color-secondary);
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    padding-top: 0;
+    font-style: normal;
+}
+
+small.helper-text {
+    display: block;
+    margin-top: -8px;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Form Elements */
+.form-group {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    background: var(--color-surface);
+    color: var(--color-primary);
+    transition: all 0.2s ease;
+    margin-bottom: var(--spacing-md);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.05);
+}
+
+input::placeholder {
+    color: #aaaaaa;
+}
+
+button {
+    background: var(--color-primary);
+    color: var(--color-surface);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: var(--spacing-sm);
+}
+
+button:hover {
+    background: #2d2d2d;
+    opacity: 0.9;
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Checkboxes */
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-right: var(--spacing-sm);
+    cursor: pointer;
+    accent-color: var(--color-primary);
+    border: 1px solid var(--color-border);
+}
+
+/* Lists */
+.list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.list-item {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    transition: all 0.2s ease;
+}
+
+.list-item:hover {
+    background: var(--color-hover);
+    border-color: var(--color-secondary);
+}
+
+.list-item h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-primary);
+}
+
+.list-item p {
+    font-size: 12px;
+    color: var(--color-secondary);
+    margin-bottom: 4px;
+}
+
+/* Balances */
+.balance-controls {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+}
+
+.balance-controls label {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 400;
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+.debt-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    margin-bottom: var(--spacing-xs);
+    font-size: 13px;
+}
+
+.debt-item strong {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.amount-badge {
+    background: var(--color-primary);
+    color: var(--color-surface);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Messages */
+.message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--color-primary);
+    color: var(--color-surface);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    font-size: 13px;
+    max-width: 400px;
+}
+
+.message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.message.error {
+    background: #1a1a1a;
+    border-left: 3px solid #666666;
+}
+
+/* Split Details */
+#splitDetails {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--color-hover);
+    border-radius: 6px;
+}
+
+#splitDetails label {
+    margin-top: var(--spacing-sm);
+}
+
+#splitDetails input[type="checkbox"] {
+    margin-right: var(--spacing-sm);
+}
+
+#splitDetails small {
+    display: block;
+    color: var(--color-secondary);
+    font-size: 11px;
+    margin-top: -8px;
+    margin-bottom: var(--spacing-sm);
+}
+
+#splitDetails > div {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: var(--spacing-md);
+}
+
+#splitDetails label[style*="cursor: pointer"] {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+/* Participant Checkboxes */
+.split-participant {
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        height: auto;
+    }
+    
+    header {
+        padding: var(--spacing-md) var(--spacing-md);
+    }
+    
+    .tabs {
+        padding: 0;
+        overflow-x: auto;
+    }
+    
+    .tab-btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 12px;
+    }
+    
+    .tab-content {
+        padding: var(--spacing-md);
+    }
+    
+    .list-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-secondary);
+}

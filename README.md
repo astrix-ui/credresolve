@@ -1,4 +1,4 @@
-# Shared Ledger Hub
+# Expense Tracker
 
 A lightweight expense tracking application for managing shared costs within groups.
 

@@ -1,5 +1,5 @@
 {
-  "name": "shared-ledger-hub",
+  "name": "expense-tracker",
   "version": "1.0.0",
   "description": "A collaborative expense tracking system with smart debt resolution",
   "main": "server.js",

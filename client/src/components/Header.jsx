@@ -3,7 +3,7 @@ import React from 'react';
 const Header = () => {
   return (
     <header>
-      <h1>Shared Ledger Hub</h1>
+      <h1>Expense Tracker</h1>
       <p className="subtitle">Split expenses and track balances with your groups</p>
     </header>
   );

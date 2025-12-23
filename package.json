@@ -1,5 +1,5 @@
 {
-  "name": "shared-ledger-hub-mern",
+  "name": "expense-tracker-mern",
   "version": "1.0.0",
   "description": "A MERN stack expense tracking application",
   "scripts": {
